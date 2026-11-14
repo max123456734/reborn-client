@@ -2,12 +2,11 @@ package dev.reborn.client.module;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TieredItem;
 
-/** Selects a tiered tool from the hotbar that is effective against the targeted block. */
+/** Selects the hotbar item with the best destroy speed for the targeted block. */
 public final class AutoToolModule extends ClientModule {
     public AutoToolModule() {
-        super("Auto Tool", "Selects the most effective tiered tool for the block under your crosshair.");
+        super("Auto Tool", "Selects the most effective hotbar tool for the block under your crosshair.");
     }
 
     @Override
@@ -22,7 +21,6 @@ public final class AutoToolModule extends ClientModule {
         float bestSpeed = 1.0F;
         for (int slot = 0; slot < 9; slot++) {
             ItemStack stack = client.player.getInventory().getItem(slot);
-            if (!(stack.getItem() instanceof TieredItem)) continue;
             float speed = stack.getDestroySpeed(state);
             if (speed > bestSpeed) {
                 bestSpeed = speed;
