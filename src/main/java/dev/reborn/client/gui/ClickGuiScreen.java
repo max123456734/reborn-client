@@ -4,6 +4,8 @@ import dev.reborn.client.module.ClientModule;
 import dev.reborn.client.module.ModuleManager;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.input.KeyEvent;
+import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import org.lwjgl.glfw.GLFW;
 
@@ -41,20 +43,20 @@ public final class ClickGuiScreen extends Screen {
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT) {
+    public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
+        if (event.button() == GLFW.GLFW_MOUSE_BUTTON_LEFT) {
             int left = this.width / 2 - PANEL_WIDTH / 2;
             int y = 35 + 42;
             for (ClientModule module : ModuleManager.all()) {
-                if (mouseX >= left + 8 && mouseX <= left + PANEL_WIDTH - 8
-                        && mouseY >= y - 4 && mouseY < y + ROW_HEIGHT - 4) {
-                    if (!(module instanceof dev.reborn.client.module.ModuleStub)) module.toggle();
+                if (event.x() >= left + 8 && event.x() <= left + PANEL_WIDTH - 8
+                        && event.y() >= y - 4 && event.y() < y + ROW_HEIGHT - 4) {
+                    module.toggle();
                     return true;
                 }
                 y += ROW_HEIGHT;
             }
         }
-        return super.mouseClicked(mouseX, mouseY, button);
+        return super.mouseClicked(event, doubleClick);
     }
 
     @Override
@@ -63,11 +65,11 @@ public final class ClickGuiScreen extends Screen {
     }
 
     @Override
-    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (keyCode == GLFW.GLFW_KEY_ESCAPE || keyCode == GLFW.GLFW_KEY_RIGHT_SHIFT) {
+    public boolean keyPressed(KeyEvent event) {
+        if (event.key() == GLFW.GLFW_KEY_ESCAPE || event.key() == GLFW.GLFW_KEY_RIGHT_SHIFT) {
             this.minecraft.setScreen(null);
             return true;
         }
-        return super.keyPressed(keyCode, scanCode, modifiers);
+        return super.keyPressed(event);
     }
 }
