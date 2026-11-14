@@ -14,6 +14,10 @@ public final class ModuleManager {
         if (!MODULES.isEmpty()) return;
         MODULES.add(new FullbrightModule());
         MODULES.add(new AutoSprintModule());
+        MODULES.add(new AimAssistModule());
+        MODULES.add(new TriggerBotModule());
+        MODULES.add(new AutoTotemModule());
+        MODULES.add(new CrystalBreakerModule());
     }
 
     public static List<ClientModule> all() {
