@@ -21,6 +21,10 @@ public final class ModuleManager {
         MODULES.add(new AutoJumpResetModule());
         MODULES.add(new AutoShieldBreakModule());
         MODULES.add(new AutoToolModule());
+        MODULES.add(new BowAimAssistModule());
+        MODULES.add(new AutoMaceModule());
+        MODULES.add(new AutoWtapModule());
+        MODULES.add(new FallPearlModule());
     }
 
     public static List<ClientModule> all() {
