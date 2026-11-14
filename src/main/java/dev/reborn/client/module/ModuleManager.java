@@ -14,13 +14,6 @@ public final class ModuleManager {
         if (!MODULES.isEmpty()) return;
         MODULES.add(new FullbrightModule());
         MODULES.add(new AutoSprintModule());
-        MODULES.add(new NoWeatherModule());
-        MODULES.add(new ModuleStub("Aim Assist", "Combat module scaffold; implementation is not active yet."));
-        MODULES.add(new ModuleStub("TriggerBot", "Combat module scaffold; implementation is not active yet."));
-        MODULES.add(new ModuleStub("Auto Totem", "Inventory module scaffold; implementation is not active yet."));
-        MODULES.add(new ModuleStub("Auto Crystal", "Combat module scaffold; implementation is not active yet."));
-        MODULES.add(new ModuleStub("Auto Anchor", "Combat module scaffold; implementation is not active yet."));
-        MODULES.add(new ModuleStub("Player ESP", "Visual module scaffold; implementation is not active yet."));
     }
 
     public static List<ClientModule> all() {
