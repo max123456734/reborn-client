@@ -29,6 +29,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: reborn-client-1.21.11
-          path: build/libs/*remapped.jar
+          path: build/libs/*.jar
           if-no-files-found: error
           retention-days: 14
