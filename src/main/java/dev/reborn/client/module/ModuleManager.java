@@ -18,6 +18,9 @@ public final class ModuleManager {
         MODULES.add(new TriggerBotModule());
         MODULES.add(new AutoTotemModule());
         MODULES.add(new CrystalBreakerModule());
+        MODULES.add(new AutoJumpResetModule());
+        MODULES.add(new AutoShieldBreakModule());
+        MODULES.add(new AutoToolModule());
     }
 
     public static List<ClientModule> all() {
